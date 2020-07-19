@@ -15,7 +15,20 @@ exports.submitLead = function(req, res, next) {
 };
 
 exports.showLeads = function(req, res, next) {
-    models.Lead.findAll().then(leads => {
+    return models.Lead.findAll().then(leads => {
         res.render('landing', { title: 'Express', leads });
+    });
+};
+
+exports.showLead = function(req, res, next) {
+    console.log('SHOW LEAD:');
+    console.log(`ID: ${req.params.leadId}`);
+
+    return models.Lead.findOne({
+        where: {
+            id: req.params.leadId
+        }
+    }).then(lead => {
+        res.render('lead', { lead });
     });
 };
