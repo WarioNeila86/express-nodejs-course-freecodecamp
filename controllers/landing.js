@@ -10,6 +10,12 @@ exports.submitLead = function(req, res, next) {
     return models.Lead.create({
         email: req.body.lead_email
     }).then(lead => {
-        res.redirect('/');
+        res.redirect('/leads');
+    });
+};
+
+exports.showLeads = function(req, res, next) {
+    models.Lead.findAll().then(leads => {
+        res.render('landing', { title: 'Express', leads });
     });
 };
