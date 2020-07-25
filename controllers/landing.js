@@ -62,3 +62,14 @@ exports.deleteLead = function (req, res, next) {
         res.redirect('/leads');
     });
 }
+
+exports.deleteLeadJson = function (req, res, next) {
+    return models.Lead.destroy({
+        where: {
+            id: req.params.leadId
+        }
+    }).then(result => {
+        console.log(`Deleted user with ID: ${req.params.leadId}`);
+        res.send({msg: 'Success'});
+    });
+}
