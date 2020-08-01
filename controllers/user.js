@@ -13,7 +13,11 @@ exports.showSignup = function(req, res, next) {
 }
 
 exports.login = function(req, res, next) {
-    
+    passport.authenticate('local', {
+        successRedirect: '/',
+        failureRedirect: '/login',
+        failureFlash: true
+    })(req, res, next);
 }
 
 const generateHash = password => bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
