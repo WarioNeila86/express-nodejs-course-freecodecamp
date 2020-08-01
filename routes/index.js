@@ -9,6 +9,8 @@ router.get('/login', user.showLogin);
 router.get('/signup', user.showSignup);
 router.post('/login', user.login);
 router.post('/signup', user.signup);
+router.get('/logout', user.logout);
+router.post('/logout', user.logout);
 
 // Get home page
 router.get('/', landing.getLanding);

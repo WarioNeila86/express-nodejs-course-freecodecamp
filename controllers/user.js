@@ -35,3 +35,9 @@ exports.signup = function(req, res, next) {
         })(req, res, next);
     });
 }
+
+exports.logout = function(req, res, next) {
+    req.logout();
+    req.session.destroy();
+    res.redirect('/');
+}
