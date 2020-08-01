@@ -31,7 +31,7 @@ module.exports = function(passport) {
         usernameField: 'email',
         passwordField: 'password',
         passReqToCallback: true
-    }),
+    },
     function(req, email, password, done){
         return models.User.findOne({
             where: {
@@ -52,5 +52,5 @@ module.exports = function(passport) {
             // Authentication success
             return done(null, user);
         }).catch(error => done(error, false));
-    });
+    }));
 };
