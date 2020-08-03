@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "lint": "./node_modules/.bin/eslint .",
     "start": "node ./bin/www",
     "start-dev": "nodemon ./bin/www"
   },
@@ -24,6 +25,7 @@
     "validator": "^13.1.1"
   },
   "devDependencies": {
+    "eslint": "^7.6.0",
     "nodemon": "^2.0.4"
   }
 }

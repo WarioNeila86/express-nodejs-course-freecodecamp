@@ -1,8 +1,6 @@
 const passport = require('passport');
 const models = require('../models');
 const bcrypt = require('bcrypt');
-const myPassport = require('../passport-setup')(passport);
-const flash = require('connect-flash');
 const {isEmpty} = require('lodash');
 
 const {validateUser} = require('../validators/signup');
@@ -53,7 +51,7 @@ exports.signup = function(req, res, next) {
                         is_admin: true
                     });
                 }
-                return newUser.save().then(result => {
+                return newUser.save().then(() => {
                     passport.authenticate('local', {
                         successRedirect: '/',
                         failureRedirect: '/signup',

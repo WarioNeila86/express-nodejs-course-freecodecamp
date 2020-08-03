@@ -9,7 +9,7 @@ exports.submitLead = function (req, res, next) {
 
     return models.Lead.create({
         email: req.body.lead_email
-    }).then(lead => {
+    }).then(() => {
         res.redirect('/leads');
     });
 };
@@ -47,7 +47,7 @@ exports.editLead = function (req, res, next) {
         where: {
             id: req.params.leadId
         }
-    }).then(result => {
+    }).then(() => {
         res.redirect('/lead/' + req.params.leadId);
     });
 }
@@ -57,7 +57,7 @@ exports.deleteLead = function (req, res, next) {
         where: {
             id: req.params.leadId
         }
-    }).then(result => {
+    }).then(() => {
         console.log(`Deleted user with ID: ${req.params.leadId}`);
         res.redirect('/leads');
     });
@@ -68,7 +68,7 @@ exports.deleteLeadJson = function (req, res, next) {
         where: {
             id: req.params.leadId
         }
-    }).then(result => {
+    }).then(() => {
         console.log(`Deleted user with ID: ${req.params.leadId}`);
         res.send({msg: 'Success'});
     });

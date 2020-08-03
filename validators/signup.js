@@ -10,11 +10,11 @@ const validateCreateUserFields = function(errors, req) {
     }
     if (!validator.isLength(req.body.password, {min: 4, max: 25})) {
         errors['password'] = 'Please ensure that your password has a minimum of 4 characters and no more than 25';
-    };
+    }
 }
 
 exports.validateUser = function(errors, req) {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function(resolve) {
         validateCreateUserFields(errors, req);
         return models.User.findOne({
             where: {

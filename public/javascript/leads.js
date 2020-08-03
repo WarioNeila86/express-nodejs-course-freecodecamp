@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 function deleteLead(leadId) {
     $.ajax({
         url: `/lead/${leadId}/delete-json`,
