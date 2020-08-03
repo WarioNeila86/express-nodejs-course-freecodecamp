@@ -18,18 +18,20 @@ router.get('/', landing.getLanding);
 // Create new Lead
 router.post('/', landing.submitLead);
 
+const {isLoggedIn, hasAuth} = require('../middleware/has-auth');
+
 // Show Leads
-router.get('/leads', landing.showLeads);
+router.get('/leads', isLoggedIn, hasAuth, landing.showLeads);
 
 // Show Lead details
-router.get('/lead/:leadId', landing.showLead);
+router.get('/lead/:leadId', hasAuth, landing.showLead);
 
 // Edit Lead details
-router.get('/lead/:leadId/edit', landing.showEditLead);
-router.post('/lead/:leadId/edit', landing.editLead);
+router.get('/lead/:leadId/edit', hasAuth, landing.showEditLead);
+router.post('/lead/:leadId/edit', hasAuth, landing.editLead);
 
 // Delete Lead
-router.post('/lead/:leadId/delete', landing.deleteLead);
-router.post('/lead/:leadId/delete-json', landing.deleteLeadJson);
+router.post('/lead/:leadId/delete', hasAuth, landing.deleteLead);
+router.post('/lead/:leadId/delete-json', hasAuth, landing.deleteLeadJson);
 
 module.exports = router;
