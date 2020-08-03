@@ -26,6 +26,12 @@
   },
   "devDependencies": {
     "eslint": "^7.6.0",
+    "husky": "^4.2.5",
     "nodemon": "^2.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint"
+    }
   }
 }
