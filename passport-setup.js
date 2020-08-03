@@ -20,10 +20,10 @@ module.exports = function(passport) {
                 'id': id
             }
         }).then(user => {
-            if (user) {
-                done(null, user);
+            if (user === null) {
+                done(new Error('Wrong user id.'));
             }
-            done(new Error('Wrong user id.'));
+            done(null, user);
         });
     });
     // Define LocalStrategy to tell passportjs what fields to use for username and password
