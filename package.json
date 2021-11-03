@@ -22,7 +22,7 @@
     "pg": "^8.3.0",
     "pug": "3.0.1",
     "sequelize": "^6.3.3",
-    "validator": "^13.1.1"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "eslint": "^7.6.0",
