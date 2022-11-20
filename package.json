@@ -17,7 +17,7 @@
     "http-errors": "~1.6.3",
     "lodash": "^4.17.21",
     "morgan": "~1.9.1",
-    "passport": "^0.4.1",
+    "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "pg": "^8.3.0",
     "pug": "3.0.1",
@@ -27,7 +27,7 @@
   "devDependencies": {
     "eslint": "^7.6.0",
     "husky": "^4.3.8",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.20"
   },
   "husky": {
     "hooks": {
